@@ -2,6 +2,7 @@ package deena;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -19,4 +20,5 @@ public class DItem extends Item {
 		playerEntity.playSound(SoundEvents.BLOCK_WOOL_BREAK, 1.0F, 1.0F);
 		return TypedActionResult.success(playerEntity.getStackInHand(hand));
 	}
+
 }

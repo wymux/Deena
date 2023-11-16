@@ -33,7 +33,6 @@ public class Deena implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "custom_item"),
 				  new DItem(new FabricItemSettings().maxCount(16)));
 
-
 	public static void itemGroupIngredients(FabricItemGroupEntries entries) {
 		entries.addAfter(Items.OAK_DOOR, CUSTOM_ITEM);
 	}
@@ -43,7 +42,6 @@ public class Deena implements ModInitializer {
 		.displayName(Text.translatable("itemGroup.tutorial.test_group"))
 		.entries((context, entries) -> {
 				entries.add(CUSTOM_ITEM);
-
 			})
 		.build();
 

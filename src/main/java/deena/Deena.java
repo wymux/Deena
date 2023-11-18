@@ -23,12 +23,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 import deena.DItem;
 
+import java.util.List;
 public class Deena implements ModInitializer {
-
 	public static final Item CUSTOM_ITEM =
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "custom_item"),
 				  new DItem(new FabricItemSettings().maxCount(16)));
@@ -54,7 +52,12 @@ public class Deena implements ModInitializer {
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
 		tooltip.add(Text.translatable("item.tutorial.custom_item.tooltip"));
 	}
-	
+
+	public static final ItemGroup EXAMPLE_MOD_GROUP = FabricItemGroup.builder()
+		.icon(() -> new ItemStack(RegisterItems.CUSTOM_MATERIAL))
+		.displayName(Text.translatable("itemGroup.tutorial.test_group"))
+		.build();
+		
 	@Override
 	public void onInitialize() {
 		FuelRegistry.INSTANCE.add(CUSTOM_ITEM, 300);

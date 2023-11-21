@@ -7,6 +7,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import deena.DeenaToolMaterial;
+
 public class RegisterItems {
 	
 	public static final ArmorMaterial CUSTOM_ARMOR_MATERIAL = new DArmorMaterial();
@@ -40,6 +42,8 @@ public class RegisterItems {
 				  ("tutorial", "custom_material_leggings"), CUSTOM_MATERIAL_LEGGINGS);
 		Registry.register(Registries.ITEM, new Identifier
 				  ("tutorial", "custom_material_boots"), CUSTOM_MATERIAL_BOOTS);
+
+		
 	}
 	
 }

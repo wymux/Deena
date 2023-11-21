@@ -24,8 +24,11 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import deena.DItem;
+import deena.RegisterItems;
+import deena.DeenaToolMaterial;
 
 import java.util.List;
+
 public class Deena implements ModInitializer {
 	public static final Item CUSTOM_ITEM =
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "custom_item"),
@@ -58,11 +61,13 @@ public class Deena implements ModInitializer {
 		.displayName(Text.translatable("itemGroup.tutorial.test_group"))
 		.build();
 		
+
 	@Override
 	public void onInitialize() {
 		FuelRegistry.INSTANCE.add(CUSTOM_ITEM, 300);
 		CompostingChanceRegistry.INSTANCE.add(CUSTOM_ITEM, 0.2F);
 		registerModItems();
+		DeenaToolMaterial.registerTools();
 	}
 
 }

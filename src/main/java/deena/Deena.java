@@ -1,5 +1,7 @@
 package deena;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
+
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -30,6 +32,11 @@ import deena.DeenaToolMaterial;
 import java.util.List;
 
 public class Deena implements ModInitializer {
+	static final Item _NETHERITE_SHIELD = new FabricShieldItem
+		(new FabricItemSettings().fireproof().maxDamage(2500),
+		 10, 13, Items.NETHERITE_INGOT);
+	public static final Item NETHERITE_SHIELD = Registry.register(Registries.ITEM, new Identifier("tutorial", "netherite_shield"), _NETHERITE_SHIELD);
+	
 	public static final Item CUSTOM_ITEM =
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "custom_item"),
 				  new DItem(new FabricItemSettings().maxCount(16)));
@@ -47,7 +54,8 @@ public class Deena implements ModInitializer {
 		.build();
 
 	public static void registerModItems() {
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(Deena::itemGroupIngredients);
+		ItemGroupEvents.modifyEntriesEvent
+			(ItemGroups.BUILDING_BLOCKS).register(Deena::itemGroupIngredients);
 		Registry.register(Registries.ITEM_GROUP, new Identifier(
 					  "tutorial", "test_group"), ITEM_GROUP);
 	}

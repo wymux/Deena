@@ -1,3 +1,9 @@
-# Deena Fabric Mode
+# Deena Fabric Mod
 
-- Current development on t1 branch
+Version: 1.20.1
+
+- [ ] 6 terrain blocks
+- [ ] 3 wood varieties
+- [ ] 2 ores
+- [ ] 3 fluids
+- [ ] Starting location

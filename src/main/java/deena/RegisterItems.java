@@ -29,7 +29,7 @@ public class RegisterItems {
 	public static final Item CUSTOM_MATERIAL_BOOTS =
 		new ArmorItem(CUSTOM_ARMOR_MATERIAL,
 			      ArmorItem.Type.BOOTS,
-			      new Item.Settings()); 
+			      new Item.Settings());
 
 	public static void register() {
 		Registry.register(Registries.ITEM, new Identifier

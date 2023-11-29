@@ -6,8 +6,12 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.fabricmc.api.ModInitializer;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.effect.StatusEffectInstance;
 
 import deena.DeenaToolMaterial;
+import deena.DEnchantment;
 
 public class RegisterItems {
 	
@@ -31,7 +35,11 @@ public class RegisterItems {
 			      ArmorItem.Type.BOOTS,
 			      new Item.Settings());
 
+	public static Enchantment FROST = new DEnchantment();
+
 	public static void register() {
+		Registry.register(Registries.ENCHANTMENT, new Identifier("tutorial", "frost"), FROST);
+
 		Registry.register(Registries.ITEM, new Identifier
 				  ("tutorial", "custom_material"), CUSTOM_MATERIAL);
 		Registry.register(Registries.ITEM, new Identifier

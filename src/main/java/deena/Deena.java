@@ -68,6 +68,7 @@ public class Deena implements ModInitializer {
 		CompostingChanceRegistry.INSTANCE.add(CUSTOM_ITEM, 0.2F);
 		registerModItems();
 		DeenaToolMaterial.registerTools();
+		RegisterItems.register();
 	}
 
 }

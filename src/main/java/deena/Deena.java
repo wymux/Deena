@@ -1,6 +1,7 @@
 package deena;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -9,6 +10,8 @@ import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemGroup;
@@ -23,17 +26,21 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
+import deena.DBlock;
 import deena.DItem;
 import deena.RegisterItems;
 import deena.DeenaToolMaterial;
 
-import java.util.List;
+import java .util.List;
 
 public class Deena implements ModInitializer {
 	public static final Item CUSTOM_ITEM =
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "custom_item"),
 				  new DItem(new FabricItemSettings().maxCount(16)));
 
+	public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.create().strength(4.0f));
+	public static final Block DBlock = new DBlock(FabricBlockSettings.create().strength(4.0f));
+	
 	public static void itemGroupIngredients(FabricItemGroupEntries entries) {
 		entries.addAfter(Items.OAK_DOOR, CUSTOM_ITEM);
 	}
@@ -69,6 +76,10 @@ public class Deena implements ModInitializer {
 		registerModItems();
 		DeenaToolMaterial.registerTools();
 		RegisterItems.register();
+		Registry.register(Registries.BLOCK, new Identifier("tutorial", "example_block"), EXAMPLE_BLOCK);
+		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(EXAMPLE_BLOCK, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("tutorial", "example_block2"), DBlock);
+		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block2"), new BlockItem(DBlock, new FabricItemSettings()));
 	}
 
 }

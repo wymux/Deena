@@ -27,6 +27,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import deena.DBlock;
+import deena.DBlockState;
 import deena.DItem;
 import deena.RegisterItems;
 import deena.DeenaToolMaterial;
@@ -80,6 +81,9 @@ public class Deena implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(EXAMPLE_BLOCK, new FabricItemSettings()));
 		Registry.register(Registries.BLOCK, new Identifier("tutorial", "example_block2"), DBlock);
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block2"), new BlockItem(DBlock, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("tutorial", "dblock_state"),
+				  DBlockState.DCHARGEABLE_BLOCK);
+		Registry.register(Registries.ITEM, new Identifier("tutorial", "dblock_state"),
+				  new BlockItem(DBlockState.DCHARGEABLE_BLOCK, new FabricItemSettings()));
 	}
-
 }

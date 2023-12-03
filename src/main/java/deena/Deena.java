@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -29,6 +30,7 @@ import net.minecraft.world.World;
 import deena.DBlock;
 import deena.DBlockState;
 import deena.DItem;
+import deena.DVerticalSlabBlock;
 import deena.RegisterItems;
 import deena.DeenaToolMaterial;
 
@@ -41,6 +43,11 @@ public class Deena implements ModInitializer {
 
 	public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.create().strength(4.0f));
 	public static final Block DBlock = new DBlock(FabricBlockSettings.create().strength(4.0f));
+
+	public static final DVerticalSlabBlock POLISHED_ANDESITE_VERTICAL_SLAB = Registry.register(
+		Registries.BLOCK,
+		new Identifier("tutorial", "polished_andesite_vertical_slab"),
+		new DVerticalSlabBlock(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
 	
 	public static void itemGroupIngredients(FabricItemGroupEntries entries) {
 		entries.addAfter(Items.OAK_DOOR, CUSTOM_ITEM);
@@ -85,5 +92,9 @@ public class Deena implements ModInitializer {
 				  DBlockState.DCHARGEABLE_BLOCK);
 		Registry.register(Registries.ITEM, new Identifier("tutorial", "dblock_state"),
 				  new BlockItem(DBlockState.DCHARGEABLE_BLOCK, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier("tutorial", "polished_andesite_vertical_slab"),
+				  new BlockItem(POLISHED_ANDESITE_VERTICAL_SLAB, new FabricItemSettings()));
 	}
 }
+
+

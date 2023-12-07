@@ -7,3 +7,8 @@ Version: 1.20.1
 - [ ] 2 ores
 - [ ] 3 fluids
 - [ ] Starting location
+
+## Issues
+
+- [ ] tutorial:DVerticalSlab Crash
+- [ ] tutorial:dblock_entity Complete BlockEntity

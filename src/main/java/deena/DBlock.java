@@ -2,6 +2,7 @@ package deena;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -20,9 +21,15 @@ public class DBlock extends Block {
 	public ActionResult onUse(BlockState state, World world, BlockPos pos,
 				  PlayerEntity player, Hand hand, BlockHitResult hit) {
 		if (!world.isClient) {
-			player.sendMessage(Text.literal("Hello, world!"), false);
+			BlockEntity blockEntity = world.getBlockEntity(pos);
+			if (blockEntity instanceof DBlockEntity) {
+				DBlockEntity demoBlockEntity = (DBlockEntity) blockEntity;
+				demoBlockEntity.number++;
+				player.sendMessage(Text.literal("Number is... "+demoBlockEntity.number), false);
+				return ActionResult.SUCCESS;
+			}
 		}
 
-		return ActionResult.SUCCESS;
+		return ActionResult.PASS;
 	}
 }

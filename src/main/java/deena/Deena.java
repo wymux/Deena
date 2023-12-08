@@ -2,6 +2,7 @@ package deena;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -11,6 +12,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -28,6 +30,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import deena.DBlock;
+import deena.DBlockEntity;
 import deena.DBlockState;
 import deena.DItem;
 import deena.DVerticalSlabBlock;
@@ -43,6 +46,11 @@ public class Deena implements ModInitializer {
 
 	public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.create().strength(4.0f));
 	public static final Block DBlock = new DBlock(FabricBlockSettings.create().strength(4.0f));
+	public static final BlockEntityType<DBlockEntity> DEMO_BLOCK_ENTITY =
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,
+				  new Identifier("tutorial", "demo_block_entity"),
+				  FabricBlockEntityTypeBuilder.create(DBlockEntity::new, DBlock).build()
+			);
 
 	public static final DVerticalSlabBlock POLISHED_ANDESITE_VERTICAL_SLAB = Registry.register(
 		Registries.BLOCK,

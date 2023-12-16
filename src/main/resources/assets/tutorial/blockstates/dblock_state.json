@@ -1,6 +1,0 @@
-{
-    "variants": {
-	"dcharged=false": { "model": "tutorial:block/dblock_state" },
-	"dcharged=true": { "model": "tutorial:block/dblock_state" }
-    }
-}

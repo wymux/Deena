@@ -19,6 +19,11 @@ public class DeenaBlocks {
 	public static final Block MACK =
 		registerBlock("mack", new Block(FabricBlockSettings
 						.copyOf(Blocks.IRON_BLOCK)));
+
+	public static final Block MUCK =
+		registerBlock("muck", new Block(FabricBlockSettings
+						.copyOf(Blocks.IRON_BLOCK)));
+	
 	private static Block registerBlock(String name, Block block) {
 		registerBlockItem(name, block);
 		return Registry.register(Registries.BLOCK, new Identifier(Deena.MOD_ID, name), block);
